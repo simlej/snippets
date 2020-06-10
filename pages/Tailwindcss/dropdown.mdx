@@ -1,0 +1,21 @@
+---
+name: Dropdown
+---
+
+import { Playground } from "dokz";
+
+# Dropdown with tailwindcss
+
+<Playground>
+  <div class="w-full flex items-start pt-4 justify-center h-64">
+    <div class="relative">
+      <button class="p-2 border rounded">Dropdown</button>
+      <ul class="absolute shadow-xl rounded-md overflow-hidden w-32 top-0 left-0 mt-12">
+        <li class="px-2 py-1 hover:bg-blue-200">Typescript</li>
+        <li class="px-2 py-1 hover:bg-blue-200">Javascript</li>
+        <li class="px-2 py-1 hover:bg-blue-200">Php</li>
+        <li class="px-2 py-1 hover:bg-blue-200">Rust</li>
+      </ul>
+    </div>
+  </div>
+</Playground>

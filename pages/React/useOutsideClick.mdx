@@ -1,0 +1,38 @@
+---
+name: useOutsideClick
+---
+
+# useOutsideClick
+
+a ReactJS hook to handle outside click action
+
+## Code
+
+```tsx
+import { useEffect } from "react";
+
+const useOutsideClick = (
+  ref: React.MutableRefObject<any>,
+  callback: () => void,
+  active: boolean = true,
+  mouseEvent: "click" | "mouseup" | "mousedown" = "click",
+) => {
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (active) {
+        e.preventDefault();
+        if (ref.current && !ref.current.contains(e.target)) {
+          callback();
+        }
+      }
+    };
+    document.addEventListener(mouseEvent, handleClick);
+
+    return () => {
+      document.removeEventListener(mouseEvent, handleClick);
+    };
+  }, [ref, callback, mouseEvent, active]);
+};
+
+export default useOutsideClick;
+```
